@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davy Chung | Trajectory</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <nav>
+        <a href="../index.html">← Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#footer">Contact</a>
+    </nav>
+
+    <header class="projectpage-header">
+    <p class="project-eyebrow">CASE STUDY</p>
+
+    <h1>Trajectory</h1>
+
+    <p class="projectpage-tagline">
+        A system for making professional growth visible.
+    </p>
+
+    <p class="projectpage-status">
+        Pilot Build · 2026
+    </p>
+</header>
+
+    <main>
+        <div class="container">
+
+            <!-- Project Summary -->
+            <section class="projectpage-section">
+                <p class="project-eyebrow">OVERVIEW</p>
+
+                <h2>Making growth visible.</h2>
+
+                <p>
+                    Trajectory is a working prototype for tracking professional growth over
+                    time. It takes things like learning, project work, problem solving and
+                    career activity and turns them into a history of how someone is actually
+                    developing.
+                </p>
+
+                <p>
+                    I started building it because I had reached a point where I had done
+                    years of classes, projects and different kinds of work, but still found
+                    it hard to answer a pretty basic question: what has all of this actually
+                    added up to?
+                </p>
+            </section>
+
+
+            <!-- Problem -->
+            <section class="projectpage-section">
+                <p class="project-eyebrow">01 · PROBLEM</p>
+
+                <h2>A lot of experience, but no real sense of progression.</h2>
+
+                <p>
+                    University gives you courses. GitHub gives you repositories. A resume
+                    gives you a short list of things worth showing someone else.
+                </p>
+
+                <p>
+                    What I felt was missing was everything in between: what I had been
+                    learning, what I kept coming back to, where I was improving and how my
+                    interests were changing over time.
+                </p>
+
+                <p>
+                    Trajectory started as my attempt to make that progression visible instead
+                    of only looking at the final output.
+                </p>
+            </section>
+
+
+            <!-- First System -->
+            <section class="projectpage-section">
+                <p class="project-eyebrow">02 · FIRST SYSTEM</p>
+
+                <h2>I started with rules, not AI.</h2>
+
+                <p>
+                    The first version is deliberately simple. You choose what kind of
+                    activity you did, enter how long you spent on it and briefly describe
+                    the work.
+                </p>
+
+                <p>
+                    A deterministic ruleset then converts that activity into XP across five
+                    dimensions:
+                </p>
+
+                <div class="tech-stack">
+                    <span class="chip">Problem Solving</span>
+                    <span class="chip">Building</span>
+                    <span class="chip">Learning</span>
+                    <span class="chip">Career</span>
+                    <span class="chip">Creativity</span>
+                </div>
+
+                <p>
+                    I originally wanted natural-language input pretty early, but adding AI
+                    before I knew whether the underlying system made sense felt backwards.
+                    Keeping the first build deterministic meant I could actually inspect the
+                    rules, test them and change them without another layer getting in the way.
+                </p>
+            </section>
+
+
+            <!-- Architecture -->
+            <section class="projectpage-section">
+                <p class="project-eyebrow">03 · ARCHITECTURE</p>
+
+                <h2>Store what happened. Calculate the rest.</h2>
+
+                <p>
+                    One of the bigger changes I made while building Trajectory was separating
+                    the actual activity from everything the system calculates from it.
+                </p>
+
+                <p>
+                    An activity stores the facts: what type of work it was, how much was
+                    done, the description, where it came from and when it happened.
+                </p>
+
+                <p>
+                    XP, levels, ranks and the five growth dimensions are derived from those
+                    facts instead of being permanently saved with every event.
+                </p>
+
+                <p>
+                    I wanted the rules to be able to change later without making old user
+                    data useless. That ended up being a much better foundation than treating
+                    every calculated value as permanent data.
+                </p>
+
+                <div class="tech-stack">
+                    <span class="chip">JavaScript</span>
+                    <span class="chip">Local Storage</span>
+                    <span class="chip">Versioned Rules</span>
+                    <span class="chip">Derived State</span>
+                </div>
+            </section>
+
+
+            <!-- MVP -->
+            <section class="projectpage-section">
+                <p class="project-eyebrow">04 · MVP</p>
+
+                <h2>Getting it usable before making it clever.</h2>
+
+                <p>
+                    The current MVP can log real activities, calculate XP, show level and
+                    rank progression, break activity down across the five dimensions and
+                    keep a history of what the user has done.
+                </p>
+
+                <p>
+                    Activities can be deleted, saved data is restored when the page is
+                    reopened, invalid data is handled without breaking the app, and users
+                    can export or reset their history.
+                </p>
+
+                <p>
+                    It is still a small build, but it reached the point where somebody other
+                    than me could actually use it for real activity. That was the point where
+                    I stopped adding features and moved it into a pilot.
+                </p>
+
+                <a
+                    class="projectpage-link"
+                    href="https://davychung.github.io/Trajectory/"
+                    target="_blank"
+                >
+                    Open Live App
+                </a>
+            </section>
+
+
+            <!-- Pilot -->
+            <section class="projectpage-section pilot-section">
+                <p class="project-eyebrow">05 · PILOT</p>
+
+                <h2>Turns out, the idea works better for some people than others.</h2>
+
+                <p>
+                    I gave the first build to two people and had them use it with their real
+                    work for roughly two weeks. Between them, they logged 21 activities
+                    covering research, studying, coding practice and project work.
+                </p>
+
+                <p>
+                    One tester already liked recording what they were doing and said
+                    Trajectory worked as a form of motivation. For that kind of person, the
+                    idea of building up a visible history of their work made sense pretty
+                    naturally.
+                </p>
+
+                <p>
+                    The other tester exposed a much bigger problem. They already used
+                    notebooks and planners, preferred deciding what to do beforehand and
+                    ticking it off afterward, and regularly forgot to come back to
+                    Trajectory. Logging the same work again just felt like another chore.
+                </p>
+
+                <p>
+                    That was probably the most useful result from the pilot.
+                </p>
+                
+                <p class="pilot-insight">
+                    The next question stopped being “how do I make the logging form better?” and
+                    became “how much of the logging can I remove entirely?”
+                </p>
+            </section>
+
+
+            <!-- Product Decisions -->
+            <section class="projectpage-section">
+                <p class="project-eyebrow">06 · PRODUCT DECISIONS</p>
+
+                <h2>The idea has changed quite a bit while I’ve been building it.</h2>
+
+                <h3>Structured input before AI</h3>
+
+                <p>
+                    Natural-language input was always part of the idea, but I pushed it back
+                    so I could test the progression system on its own first.
+                </p>
+
+                <p>
+                    Otherwise, if users liked or hated the product, I would have had no idea
+                    whether they were reacting to the actual model or just the AI interface
+                    sitting on top of it.
+                </p>
+
+                <h3>Manual logging cannot become another job</h3>
+
+                <p>
+                    The pilot made this pretty obvious. The biggest friction was not XP or
+                    the five dimensions. It was remembering to open another website and log
+                    something the user had already finished doing.
+                </p>
+
+                <p>
+                    That pushed Trajectory much further toward automation. If a GitHub push,
+                    completed task or another existing workflow can tell the system that
+                    work happened, the user should not have to repeat that information just
+                    for Trajectory.
+                </p>
+
+                <h3>The XP is not really the point</h3>
+
+                <p>
+                    XP and levels are useful because they make the first version tangible
+                    and give me something concrete to test.
+                </p>
+
+                <p>
+                    But I do not think the final product should just be a career RPG. The
+                    more interesting part is the history underneath it: what someone keeps
+                    working on, where their effort is going and how that changes over time.
+                </p>
+
+                <h3>AI needs to earn its place</h3>
+
+                <p>
+                    AI still makes sense for turning messy natural-language descriptions
+                    into structured activity, especially if it reduces the amount of manual
+                    categorisation the user has to do.
+                </p>
+
+                <p>
+                    But it also adds cost, reliability issues and another layer of
+                    complexity. I would rather add it because it fixes a problem the pilot
+                    actually exposed than because “AI-powered” looks good on the project
+                    page.
+                </p>
+            </section>
+
+
+            <!-- Current Stack -->
+            <section class="projectpage-section">
+                <p class="project-eyebrow">07 · CURRENT STACK</p>
+
+                <h2>Keeping the build small while the idea is still changing.</h2>
+
+                <div class="tech-stack">
+                    <span class="chip">HTML</span>
+                    <span class="chip">CSS</span>
+                    <span class="chip">JavaScript</span>
+                    <span class="chip">Local Storage</span>
+                    <span class="chip">Git</span>
+                    <span class="chip">GitHub Pages</span>
+                </div>
+
+                <p>
+                    Trajectory is still built with plain HTML, CSS and JavaScript. That has
+                    actually been useful at this stage because the product has been changing
+                    faster than the technology needs to.
+                </p>
+
+                <p>
+                    I have already changed the data model, persistence behaviour and ruleset
+                    several times. Keeping the stack simple has made those changes much
+                    easier while I figure out what deserves to survive into the next version.
+                </p>
+            </section>
+
+
+            <!-- Next -->
+            <section class="projectpage-section">
+                <p class="project-eyebrow">08 · NEXT</p>
+
+                <h2>Make Trajectory something you do not have to remember to use.</h2>
+
+                <p>
+                    I am more interested in letting Trajectory pick up information from
+                    things people already use. A GitHub push, a completed task or another
+                    existing workflow should be able to update Trajectory without asking the
+                    user to log the same work again.
+                </p>
+
+                <p>
+                    One direction I want to explore is making Trajectory run more quietly in
+                    the background. Instead of being another app the user has to remember to
+                    open, it could detect activity automatically and briefly surface progress
+                    through a desktop or taskbar notification before getting out of the way.
+                </p>
+
+                <p>
+                    Manual and natural-language entry would still be there for activity that
+                    cannot be detected automatically, but ideally they become the fallback
+                    rather than the main way the product works.
+                </p>
+            </section>
+
+
+            <!-- Links -->
+            <section class="projectpage-section">
+                <p class="project-eyebrow">LINKS</p>
+
+                <h2>Try it yourself.</h2>
+
+                <div class="project-links">
+                    <a
+                        href="https://davychung.github.io/Trajectory/"
+                        target="_blank"
+                    >
+                        Live App
+                    </a>
+
+                    <a href="#">
+                        GitHub
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
